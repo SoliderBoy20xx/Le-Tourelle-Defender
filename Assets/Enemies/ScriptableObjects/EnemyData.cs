@@ -1,16 +1,27 @@
 using UnityEngine;
 
-public class EnemyData : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+[CreateAssetMenu (
+    fileName = "EnemyData",
+    menuName = "ScriptableObjects/EnemyData",
+    order = 2
+)]
+
+public class EnemyData : ScriptableObject
+{
+    [Header("Stats")]
+    public float maxHP = 100f;
+    public float moveSpeed = 4f;
+
+   [Header("Gameplay")]
+
+    public float damageToBase = 10f;
+
+
+    [Header("Visuals")]
+
+    public Color color = Color.red;
+
+
+    
 }
