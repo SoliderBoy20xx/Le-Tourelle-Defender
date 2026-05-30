@@ -20,7 +20,7 @@ public class EnemyData : ScriptableObject
 
     [Header("Visuals")]
 
-    public Color color = Color.red;
+     public Material material;
 
 
     
