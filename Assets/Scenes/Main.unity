@@ -1488,6 +1488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1577353603}
   - component: {fileID: 1577353604}
+  - component: {fileID: 1577353605}
   m_Layer: 0
   m_Name: WaveManager
   m_TagString: Untagged
@@ -1517,13 +1518,37 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577353602}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 790feecdcd307d6409e7a867e6f3718d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemyPrefab: {fileID: 379493368607319859, guid: 1e6b7e2ba2d4ebc4b89032f33f33851f, type: 3}
   spawnPoint: {fileID: 1415749568}
+  target: {fileID: 1099869063}
+--- !u!114 &1577353605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577353602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f9c81dd09255647a0ede34b27c9c81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaveManager
+  waves:
+  - {fileID: 11400000, guid: 9201af960b00aac40b9c79f71914c0f9, type: 2}
+  - {fileID: 11400000, guid: e23dddde3048b0d4bb0695c14b2db9a1, type: 2}
+  - {fileID: 11400000, guid: 2a95a0cd498e4994ab5d7ffaf3caf686, type: 2}
+  spawnPoints:
+  - {fileID: 1415749568}
+  - {fileID: 297874524}
+  - {fileID: 2028064727}
+  - {fileID: 1516623134}
+  - {fileID: 861849348}
+  - {fileID: 1260674477}
   target: {fileID: 1099869063}
 --- !u!1 &1632576403
 GameObject:

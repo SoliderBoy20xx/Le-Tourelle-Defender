@@ -40,6 +40,7 @@ private GameObject secondaryProjectilePrefab;
         if (pools.ContainsKey(prefab))
             return;  // check if already exists                                             
 
+        Debug.Log($"Creating pool: {prefab.name}");
         ObjectPool pool = new ObjectPool( prefab, size, transform);  // create an instance of pool for an object using the ObjectPool calss we made
                 
 
@@ -48,6 +49,7 @@ private GameObject secondaryProjectilePrefab;
 
     public GameObject Get(GameObject prefab)
     {
+        Debug.Log($"Looking for pool: {prefab.name}");
         return pools[prefab].Get();
     } // get obj from pool by prefab key
 
@@ -60,6 +62,8 @@ private GameObject secondaryProjectilePrefab;
 
     private void Start()  // create initial pools , use your judgment for size 
 {
+    Debug.Log($"Fast Pool Ref: {fastEnemyPrefab}");
+    Debug.Log($"Tank Pool Ref: {tankEnemyPrefab}");
     CreatePool(fastEnemyPrefab, 20);
     CreatePool(tankEnemyPrefab, 10);
     CreatePool(PrimaryprojectilePrefab, 100);
