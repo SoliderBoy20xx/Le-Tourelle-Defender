@@ -33,6 +33,14 @@ private GameObject secondaryProjectilePrefab;
         {
             Destroy(gameObject);
         }
+
+        // init pools 
+    //Debug.Log($"Fast Pool Ref: {fastEnemyPrefab}");
+    //Debug.Log($"Tank Pool Ref: {tankEnemyPrefab}");
+    CreatePool(fastEnemyPrefab, 20);
+    CreatePool(tankEnemyPrefab, 10);
+    CreatePool(PrimaryprojectilePrefab, 100);
+    CreatePool(secondaryProjectilePrefab, 10);
     }
 
     public void CreatePool(GameObject prefab,int size)
@@ -60,13 +68,5 @@ private GameObject secondaryProjectilePrefab;
         pools[prefab].Release(obj);
     }// put it back 
 
-    private void Start()  // create initial pools , use your judgment for size 
-{
-    Debug.Log($"Fast Pool Ref: {fastEnemyPrefab}");
-    Debug.Log($"Tank Pool Ref: {tankEnemyPrefab}");
-    CreatePool(fastEnemyPrefab, 20);
-    CreatePool(tankEnemyPrefab, 10);
-    CreatePool(PrimaryprojectilePrefab, 100);
-    CreatePool(secondaryProjectilePrefab, 10);
-}
+
 }   
