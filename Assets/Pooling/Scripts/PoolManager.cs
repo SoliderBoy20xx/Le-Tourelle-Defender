@@ -1,0 +1,47 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+
+
+//Created a pool manager and did not use unity pool system cuz it is designed for specific type and i want to pull anything 
+
+public class PoolManager : MonoBehaviour
+{
+    public static PoolManager Instance; // static for other scripts to access , use one for all and no need to pass pool manager ref around
+    private Dictionary<GameObject, ObjectPool> pools = new Dictionary<GameObject, ObjectPool>();  // using a dictionary to hold multiple pools diff objs , better than unity pool system 
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }                                // either set instance or destory if one exists , making sure only ine manager exists 
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void CreatePool(GameObject prefab,int size)
+    {
+        if (pools.ContainsKey(prefab))
+            return;  // check if already exists                                             
+
+        ObjectPool pool = new ObjectPool( prefab, size, transform);  // create an instance of pool for an object using the ObjectPool calss we made
+                
+
+        pools.Add(prefab, pool); // finally add it to dict with prefab as key and pool as value 
+    }
+
+    public GameObject Get(GameObject prefab)
+    {
+        return pools[prefab].Get();
+    } // get obj from pool by prefab key
+
+    public void Release(
+        GameObject prefab,
+        GameObject obj)
+    {
+        pools[prefab].Release(obj);
+    }
+}   // put it back 
