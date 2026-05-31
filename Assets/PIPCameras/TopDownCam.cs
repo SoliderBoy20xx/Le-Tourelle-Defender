@@ -14,17 +14,7 @@ public class TopDownCam : MonoBehaviour
         if (target == null)
             return;
 
-        Vector3 desiredPosition = new Vector3(
-            target.position.x,
-            height,
-            target.position.z
-        );
-
-        transform.position = Vector3.Lerp(
-            transform.position,
-            desiredPosition,
-            smoothSpeed * Time.deltaTime
-        );
+        transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, height, target.position.z), smoothSpeed * Time.deltaTime);
 
         transform.rotation = Quaternion.Euler(90f, 0f, 0f);
     }
@@ -33,7 +23,7 @@ public class TopDownCam : MonoBehaviour
     {
         if (target == null || !target.gameObject.activeInHierarchy)
         {
-            GameObject dataObj = GameObject.FindWithTag("data");
+            GameObject dataObj = GameObject.FindWithTag("enemy");
 
             if (dataObj != null)
                 target = dataObj.transform;
