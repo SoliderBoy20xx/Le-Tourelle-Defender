@@ -9,6 +9,8 @@ public abstract class Enemies : PoolableObject
     public Color Color { get; private set; }  
     public EnemyData EnemyData => enemyData; 
 
+    public static System.Action OnEnemyRemoved; // enemy tracker , sub in wave mg
+
 
     // implemnting the Pool methods 
     public override void OnSpawn()        
@@ -33,9 +35,13 @@ public abstract class Enemies : PoolableObject
 
     protected virtual void Die()
     {
-         Debug.Log("Enemy dying");
-          Debug.Log( $"Enemy dying. Pool = {owningPool}");
+         //Debug.Log("Enemy dying");
+          // Debug.Log( $"Enemy dying. Pool = {owningPool}");
+        OnEnemyRemoved?.Invoke();  // for tracker
            ReturnToPool();
+   
+
+
     }
 
     protected virtual void Awake()             // caching material once here 

@@ -17,6 +17,9 @@ public class WaveManager : MonoBehaviour
 
     private int currentWaveIndex;  // track current wave
 
+    // track enemies alive so wave 2 starts after 1 
+    private int EnemiesAlive;
+
     private void Start()
     {
         StartCoroutine(StartWaveRoutine());
@@ -28,7 +31,9 @@ public class WaveManager : MonoBehaviour
         {
             yield return SpawnWave(waves[currentWaveIndex]);
             currentWaveIndex++;
-            yield return new WaitForSeconds(3f);
+          //yield return new WaitForSeconds(3f);
+            yield return new WaitUntil(() => EnemiesAlive <= 0); // wait until all enemies are deade
+            yield return new WaitForSeconds(2f);
         }
     }
 
@@ -53,5 +58,27 @@ public class WaveManager : MonoBehaviour
         enemy.transform.SetPositionAndRotation(spawnPoint.position,Quaternion.identity);
 
         enemy.GetComponent<EnemyMovement>().SetTarget(target); 
+
+        EnemiesAlive++;
     }
+
+
+
+
+    //tracker sub unsub
+    private void OnEnable()
+{
+    Enemies.OnEnemyRemoved += HandleEnemyRemoved;
+}
+
+private void OnDisable()
+{
+    Enemies.OnEnemyRemoved -= HandleEnemyRemoved;
+}
+
+private void HandleEnemyRemoved()
+{
+    EnemiesAlive--;
+}
+
 }
