@@ -40,7 +40,9 @@ public class ObjectPool
         // new fix 
         PoolableObject poolable = obj.GetComponent<PoolableObject>(); 
         // set pool ref to later know where to return 
+        Debug.Log($"Set pool for {obj.name}");
         poolable?.SetPool(this);
+
 
         obj.SetActive(false);
         poolQueue.Enqueue(obj);
@@ -62,9 +64,11 @@ public class ObjectPool
  
     public void Release(GameObject obj)
     {
+        Debug.Log($"Releasing {obj.name}");
         IPoolable poolable = obj.GetComponent<IPoolable>(); poolable?.OnDespawn();
          obj.SetActive(false);
           poolQueue.Enqueue(obj);
+            Debug.Log($"Queue count: {poolQueue.Count}");
     }
 }       // when done using obj, call Despawn, desactivate ,enqueue back 
 

@@ -17,17 +17,12 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void Spawn()
-    {
-        GameObject enemy =
-            Instantiate(
-                enemyPrefab,
-                spawnPoint.position,
-                Quaternion.identity);
-
-        enemy.GetComponent<EnemyMovement>()
-             .SetTarget(target);
-    }
+private void Spawn()
+{
+    GameObject enemy =PoolManager.Instance.Get(enemyPrefab);
+    enemy.transform.SetPositionAndRotation(spawnPoint.position,Quaternion.identity);
+    enemy.GetComponent<EnemyMovement>().SetTarget(target);
+}
 }
 
 // temp for testing 

@@ -7,10 +7,13 @@ public abstract class PoolableObject : MonoBehaviour,IPoolable
     public void SetPool(ObjectPool pool)
     {
         owningPool = pool;
+        Debug.Log($"{gameObject.name} got pool {owningPool}");
     }
 
     public virtual void ReturnToPool()
     {
+         Debug.Log("Returning to pool");
+        Debug.Log($"Pool Ref : {owningPool}");
         owningPool?.Release(gameObject);
     }
 

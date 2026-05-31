@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemies : PoolableObject  
+public abstract class Enemies : PoolableObject 
 {
     [SerializeField]
     protected EnemyData enemyData;  // ref to Scriptable Object 
@@ -33,6 +33,8 @@ public class Enemies : PoolableObject
 
     protected virtual void Die()
     {
+         Debug.Log("Enemy dying");
+          Debug.Log( $"Enemy dying. Pool = {owningPool}");
            ReturnToPool();
     }
 
@@ -49,6 +51,20 @@ public class Enemies : PoolableObject
             
 
         }
+    }
+
+    // base reached logic 
+    private void OnTriggerEnter(Collider other)
+    {
+       
+            BaseHealth baseHealth = other.GetComponent<BaseHealth>();
+
+             if (baseHealth != null)
+            {
+                baseHealth.TakeDamage(enemyData.damageToBase);  
+                Die();  
+            }
+        
     }
 }
 
