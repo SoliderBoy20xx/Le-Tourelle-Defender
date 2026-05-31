@@ -10,6 +10,19 @@ public class PoolManager : MonoBehaviour
     public static PoolManager Instance; // static for other scripts to access , use one for all and no need to pass pool manager ref around
     private Dictionary<GameObject, ObjectPool> pools = new Dictionary<GameObject, ObjectPool>();  // using a dictionary to hold multiple pools diff objs , better than unity pool system 
 
+// init pools
+[SerializeField]
+private GameObject fastEnemyPrefab;
+
+[SerializeField]
+private GameObject tankEnemyPrefab;
+
+[SerializeField]
+private GameObject PrimaryprojectilePrefab;
+[SerializeField]
+private GameObject secondaryProjectilePrefab;
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -43,5 +56,13 @@ public class PoolManager : MonoBehaviour
         GameObject obj)
     {
         pools[prefab].Release(obj);
-    }
-}   // put it back 
+    }// put it back 
+
+    private void Start()  // create initial pools , use your judgment for size 
+{
+    CreatePool(fastEnemyPrefab, 20);
+    CreatePool(tankEnemyPrefab, 10);
+    CreatePool(PrimaryprojectilePrefab, 100);
+    CreatePool(secondaryProjectilePrefab, 10);
+}
+}   

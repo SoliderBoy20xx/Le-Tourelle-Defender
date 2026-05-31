@@ -57,6 +57,7 @@ public class WeaponController : MonoBehaviour
         }
     }
 
+/*
     private void Fire(WeaponData weapon)
 {
     Projectile projectile =
@@ -70,4 +71,20 @@ public class WeaponController : MonoBehaviour
         // TEMP (we will replace with Pool later)
         return GameObject.CreatePrimitive(PrimitiveType.Sphere);
     }
+
+*/
+private void Fire(WeaponData weapon)
+{
+    GameObject projectileObject = PoolManager.Instance.Get(weapon.projectilePrefab.gameObject);
+    projectileObject.transform.SetPositionAndRotation(spawnPoint.position,spawnPoint.rotation);
+    Projectile projectile =
+        projectileObject.GetComponent<Projectile>();
+
+    projectile.Initialize(
+        weapon.damage,
+        weapon.projectileSpeed,
+        weapon.projectileLifetime);
+}
+
+
 }

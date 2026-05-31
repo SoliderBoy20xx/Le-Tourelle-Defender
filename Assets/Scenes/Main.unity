@@ -163,6 +163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0afaabdfe5428a44b82215a850250b05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PoolManager
+  fastEnemyPrefab: {fileID: 379493368607319859, guid: 1e6b7e2ba2d4ebc4b89032f33f33851f, type: 3}
+  tankEnemyPrefab: {fileID: 2115428339730551608, guid: aa8fe5a20117d96479fee1e7d5e78b85, type: 3}
+  PrimaryprojectilePrefab: {fileID: 4826883559023324016, guid: 11e196aca39a552408027892e7ad7fcf, type: 3}
+  secondaryProjectilePrefab: {fileID: 1900736203973324272, guid: 452a21bb988416644a2a669b19816100, type: 3}
 --- !u!1 &227842929
 GameObject:
   m_ObjectHideFlags: 0
