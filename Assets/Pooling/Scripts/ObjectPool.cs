@@ -37,6 +37,11 @@ public class ObjectPool
     private GameObject CreateObject()
     {
         GameObject obj = Object.Instantiate(prefab, parent);
+        // new fix 
+        PoolableObject poolable = obj.GetComponent<PoolableObject>(); 
+        // set pool ref to later know where to return 
+        poolable?.SetPool(this);
+
         obj.SetActive(false);
         poolQueue.Enqueue(obj);
         return obj;

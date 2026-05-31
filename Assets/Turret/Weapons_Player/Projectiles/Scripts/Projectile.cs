@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+// public class Projectile : MonoBehaviour
+ // public class Projectile : MonoBehaviour, IPoolable
+
+public class Projectile : PoolableObject
 {
     private float speed;
     private float damage;
@@ -52,8 +55,20 @@ public class Projectile : MonoBehaviour
 
     private void DestroyProjectile()
     {
-        gameObject.SetActive(false); // TEMP (will become Pool later)
+        // gameObject.SetActive(false); // TEMP (will become Pool later)
+
+        ReturnToPool(); // call now from poolableObj
     }
+
+
+public override void OnSpawn()
+{
+    timer = 0f;
+}
+
+
+
+
 }
 
 

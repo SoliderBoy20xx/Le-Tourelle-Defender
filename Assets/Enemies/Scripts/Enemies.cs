@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemies : MonoBehaviour, IPoolable  // using pool interface  
+public class Enemies : PoolableObject  
 {
     [SerializeField]
     protected EnemyData enemyData;  // ref to Scriptable Object 
@@ -11,15 +11,15 @@ public class Enemies : MonoBehaviour, IPoolable  // using pool interface
 
 
     // implemnting the Pool methods 
-    public virtual void OnSpawn()           // virtual just in case i need to override later in an enemy type
+    public override void OnSpawn()        
     {
         currentHP = enemyData != null ? enemyData.maxHP : 0f;  // set current HP to max from Scr obj when spawned 
     
     }
 
-    public virtual void OnDespawn()         // virtual just in case i need to override later in an enemy type
+    public override void  OnDespawn()       
     {
-        // adjust later
+        // fill later
     }
 
     public virtual void TakeDamage(float damage)  // override for diffent damage 
@@ -33,7 +33,7 @@ public class Enemies : MonoBehaviour, IPoolable  // using pool interface
 
     protected virtual void Die()
     {
-        gameObject.SetActive(false);           // use pool manager later 
+           ReturnToPool();
     }
 
     protected virtual void Awake()             // caching material once here 
