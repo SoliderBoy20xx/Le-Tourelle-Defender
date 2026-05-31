@@ -229,7 +229,7 @@ Transform:
   m_GameObject: {fileID: 297874523}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.04, y: 0.15, z: -0.99}
+  m_LocalPosition: {x: -2.04, y: 0.3, z: -0.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -434,8 +434,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14253855, y: -0.00000004355476, z: 0.0000000062722765, w: 0.9897893}
-  m_LocalPosition: {x: 0.51646006, y: 0.81700003, z: -0.77875006}
+  m_LocalRotation: {x: 0.13792685, y: 5.8662403e-37, z: -8.1691984e-38, w: 0.99044245}
+  m_LocalPosition: {x: 0.51646, y: 0.705, z: -0.7687501}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -908,7 +908,7 @@ Transform:
   m_GameObject: {fileID: 861849347}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.97, y: 0.15, z: -0.083}
+  m_LocalPosition: {x: 1.97, y: 0.3, z: -0.083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -941,8 +941,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050041578}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14253855, y: -0.00000004355476, z: 0.0000000062722765, w: 0.9897893}
-  m_LocalPosition: {x: 0.51646006, y: 0.81700003, z: -0.77875006}
+  m_LocalRotation: {x: 0.13792685, y: 5.837724e-37, z: -6.1214625e-38, w: 0.9904424}
+  m_LocalPosition: {x: 0.51646, y: 0.705, z: -0.7687501}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1029,23 +1029,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1050041578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 625c14eee3ad46c99df7c7c891ef668a, type: 3}
+  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineThirdPersonFollow
-  Damping: {x: 0.1, y: 0.5, z: 0.3}
-  ShoulderOffset: {x: 0.7, y: -0.3, z: 0}
-  VerticalArmLength: 0
-  CameraSide: 0
-  CameraDistance: 0.8
-  AvoidObstacles:
-    Enabled: 0
-    CollisionFilter:
-      serializedVersion: 2
-      m_Bits: 1
-    IgnoreTag: 
-    CameraRadius: 0.2
-    DampingIntoCollision: 0
-    DampingFromCollision: 0.5
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
+  TrackerSettings:
+    BindingMode: 4
+    PositionDamping: {x: 1, y: 1, z: 1}
+    AngularDampingMode: 0
+    RotationDamping: {x: 1, y: 1, z: 1}
+    QuaternionDamping: 1
+  FollowOffset: {x: 0, y: 0.48, z: -0.69}
 --- !u!1 &1099869062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,7 +1190,7 @@ Transform:
   m_GameObject: {fileID: 1260674476}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.66, y: 0.15, z: -1.55}
+  m_LocalPosition: {x: 2.66, y: 0.3, z: -1.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1436,7 +1429,7 @@ Transform:
   m_GameObject: {fileID: 1415749567}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.785, y: 0.15, z: -0.083}
+  m_LocalPosition: {x: -0.785, y: 0.3, z: -0.083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1467,7 +1460,7 @@ Transform:
   m_GameObject: {fileID: 1516623133}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.05, y: 0.15, z: 0.31}
+  m_LocalPosition: {x: 1.05, y: 0.3, z: 0.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1756,7 +1749,7 @@ Transform:
   m_GameObject: {fileID: 2028064726}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.225, y: 0.15, z: -0.79}
+  m_LocalPosition: {x: 1.225, y: 0.3, z: -0.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1921,7 +1914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 218575663425729943, guid: de66cfbac9db61743ba2afdf69d210af, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.317
+      value: 0.225
       objectReference: {fileID: 0}
     - target: {fileID: 218575663425729943, guid: de66cfbac9db61743ba2afdf69d210af, type: 3}
       propertyPath: m_LocalPosition.z

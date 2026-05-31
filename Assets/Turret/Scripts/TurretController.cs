@@ -25,10 +25,10 @@ public class TurretController : MonoBehaviour
         float yawInput = 0f;
         float pitchInput = 0f;
 
-        if (Keyboard.current.aKey.isPressed)
+        if (Keyboard.current.dKey.isPressed)
             yawInput += 1f;
 
-        if (Keyboard.current.dKey.isPressed)
+        if (Keyboard.current.aKey.isPressed)
             yawInput -= 1f;
 
         if (Keyboard.current.wKey.isPressed)

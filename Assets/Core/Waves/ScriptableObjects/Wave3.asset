@@ -17,4 +17,4 @@ MonoBehaviour:
     amount: 10
   - enemyPrefab: {fileID: 0}
     amount: 5
-  spawnDelay: 25
+  spawnDelay: 5
