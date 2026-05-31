@@ -4,6 +4,7 @@
 
 
 using UnityEngine;
+using UnityEngine.InputSystem;
 public class WeaponController : MonoBehaviour
 {
     [Header("Weapons")]
@@ -32,7 +33,7 @@ public class WeaponController : MonoBehaviour
     private void HandlePrimaryFire()
     {
         primaryTimer += Time.deltaTime;
-        if (Input.GetMouseButton(0))
+        if (Mouse.current != null && Mouse.current.leftButton.isPressed)
         {
             if (primaryTimer >= 1f / primaryWeapon.fireRate)
             // shots per second to secs per shot , time between shots
@@ -46,30 +47,23 @@ public class WeaponController : MonoBehaviour
     private void HandleSecondaryFire()
     {
         secondaryTimer += Time.deltaTime;
-        if (Input.GetMouseButtonDown(1))
+        if (Mouse.current != null && Mouse.current.rightButton.wasPressedThisFrame)
         {
             if (secondaryTimer >= secondaryWeapon.cooldown)
             {
                 Fire(secondaryWeapon);
                 secondaryTimer = 0f;
-            } // same with cooldown restrictrion
+            }
         }
     }
 
     private void Fire(WeaponData weapon)
-    {
-        GameObject projectile = InstantiateProjectile();
-        Projectile p = projectile.GetComponent<Projectile>();
-        // pos and rot , test degree 
-        p.transform.position = spawnPoint.position;
-        p.transform.rotation = spawnPoint.rotation;
+{
+    Projectile projectile =
+        Instantiate(weapon.projectilePrefab, spawnPoint.position, spawnPoint.rotation);
 
-        p.Initialize(
-            weapon.damage,
-            weapon.projectileSpeed,
-            weapon.projectileLifetime
-        );
-    }
+    projectile.Initialize(  weapon.damage, weapon.projectileSpeed,weapon.projectileLifetime);
+}
 
     private GameObject InstantiateProjectile()
     {

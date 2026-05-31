@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9fd07a05f856a40b7798be131241fd, type: 3}
   m_Name: JuggernautData
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  maxHP: 240
-  moveSpeed: 0.5
+  maxHP: 200
+  moveSpeed: 0.2
   damageToBase: 50
   material: {fileID: 2100000, guid: 8e41a05daefa0d145874b263cdd3fdff, type: 2}

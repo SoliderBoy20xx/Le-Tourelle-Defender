@@ -25,7 +25,8 @@ public class Projectile : MonoBehaviour
 
     private void Move()
     {
-         transform.position += transform.forward * speed * Time.deltaTime;
+        transform.position += transform.forward * speed * Time.deltaTime;
+     
     }
 
     private void HandleLifetime()

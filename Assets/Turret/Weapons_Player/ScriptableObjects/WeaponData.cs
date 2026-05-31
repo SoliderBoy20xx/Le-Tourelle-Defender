@@ -2,16 +2,19 @@ using UnityEngine;
 
 [CreateAssetMenu(
    fileName = "WeaponData",
-   menuName = "Data/Weapon Data")]
+   menuName = "ScriptableObjects/Weapon Data")]
 public class WeaponData : ScriptableObject
 {
     [Header("Stats")]
     public float damage = 25f;
-    public float fireRate = 4f;
+    public float fireRate = 2f;              // irrelevant for secondary since we have cooldown 
 
     [Header("ProjectileSettings")]
-    public float projectileSpeed = 20f;
+    public float projectileSpeed = 2f;
     public float projectileLifetime = 5f;
+
+       [Header("Visual")]
+    public Projectile projectilePrefab;             // use projectiles we made 
 
     [Header("Weapon Type")]
     public bool isPrimaryWeapon = true;

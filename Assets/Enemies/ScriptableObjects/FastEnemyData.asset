@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: FastEnemyData
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   maxHP: 50
-  moveSpeed: 1
+  moveSpeed: 0.5
   damageToBase: 10
   material: {fileID: 2100000, guid: c7792a179d85de54d8cbc048f81b7425, type: 2}
